@@ -21,6 +21,14 @@
 
     <div class="container">
         <div class="title">Dodawanie plików
+            <form method='post'>
+                <div class="addition">
+                    <input type="text" id="newNameInput" class="invisible" name="arg1" value="Nowa realizacja">
+                    <button type='submit' id="additionButton1" class="invisible" name='addNew'>Dodaj</button>
+                    <button id="additionButton2" onclick="toggleAddition(event)">Dodaj nową realizację</button>
+                    <button id="additionButton3" class="invisible" onclick="toggleAddition(event)">Anuluj</button>
+                </div>
+            </form>
         </div>
         <div class="control-panel">
             <?php
@@ -33,9 +41,9 @@
                     echo "<div class='record' onclick='toggleRecord(event)'>
                         $name
                         <div class='invisible'>
-                            <input class='invisible' id='fileName' value='$file'>
-                            <button onclick='handleClick(\"changeName\")'>Zmień nazwę</button>
-                            <button onclick='handleClick(\"delete\")'>Usuń</button>
+                            <button onclick='handleClick(\"changeName\",\"$file\")'>Zmień nazwę</button>
+                            <button onclick='handleClick(\"delete\",\"$file\")'>Usuń</button>
+                            <button onclick='handleClick(\"addFiles\",\"$file\")'>Dodaj pliki</button>
                         </div>
                     </div>";
                 }
@@ -48,8 +56,9 @@
     </div>
     <div class="overlay">
         <form method='post'>
-            <input class='invisible' id='newFileName' name='arg1' value='$file' />
+            <input class='invisible' id='firstArg' name='arg1' value='$file' />
             <input type='text' id="secondArg" name='arg2' value='nowe' />
+            <input type="file" class='invisible' id='files' name='files'/>
             <button type='submit' id='submitButton' name='changeName'>Zmień nazwę</button>
             <button onclick='toggleOverlay()'>Anuluj</button>
         </form>

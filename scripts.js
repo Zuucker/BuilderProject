@@ -1,7 +1,7 @@
 const toggleRecord = (event) =>{
     const parentDiv = event.target;
     const controlsDiv =  parentDiv.childNodes[1];
-    if(controlsDiv.style && controlsDiv.style.display === 'none' || controlsDiv.style.display === '')
+    if(controlsDiv && controlsDiv.style && (controlsDiv.style.display === 'none' || controlsDiv.style.display === ''))
     {
         const allRecords = [...document.getElementsByClassName('record')];
         allRecords.forEach(r => {
@@ -9,14 +9,13 @@ const toggleRecord = (event) =>{
         });
         controlsDiv.style.display='block';
     }
-    else{
+    else if(controlsDiv && controlsDiv.style && !(controlsDiv.style.display === 'none' || controlsDiv.style.display === '')){
         controlsDiv.style.display='none';
     }
 }
 
 const toggleOverlay = () =>{
     const overlayDiv = document.getElementsByClassName("overlay")[0];
-    console.log(overlayDiv.style.display );
     if(overlayDiv.style.display === 'none' || overlayDiv.style.display === '')
     {
         overlayDiv.style.display = 'block';
@@ -27,17 +26,47 @@ const toggleOverlay = () =>{
     }
 }
 
-const handleClick = (argument) => {
-    console.log(argument);
-    document.getElementById("newFileName").value = document.getElementById("fileName").value;
+const toggleAddition = (e) =>{
+
+    e.preventDefault();
+
+    const newInput = document.getElementById("newNameInput");
+    const additionButton1 = document.getElementById("additionButton1");
+    const additionButton2 = document.getElementById("additionButton2");
+    const additionButton3 = document.getElementById("additionButton3");
+
+    if(newInput.style.display === 'none' || newInput.style.display === '')
+    {
+        newInput.style.display = 'block';
+        additionButton1.style.display = 'block';
+        additionButton2.style.display = 'none';
+        additionButton3.style.display = 'block';
+    }
+    else
+    {
+        newInput.style.display = 'none';
+        additionButton1.style.display = 'none';
+        additionButton2.style.display = 'block';
+        additionButton3.style.display = 'none';
+    }
+}
+
+const handleClick = (argument,fileName) => {
+    document.getElementById("firstArg").value = fileName;
     document.getElementById("submitButton").name = argument;
 
     if(argument === "changeName"){
-        document.getElementById("submitButton").innerHTML = "Zmień nazwę";
         document.getElementById("secondArg").style.display = 'block';
+        document.getElementById("submitButton").innerHTML = "Zmień nazwę";
     }else if(argument === "delete"){
+        document.getElementById("firstArg").style.display = 'none';
         document.getElementById("secondArg").style.display = 'none';
         document.getElementById("submitButton").innerHTML = "Usuń";
+    }else if(argument === "addFiles"){
+        document.getElementById("files").click();
+        document.getElementById("firstArg").style.display = 'none';
+        document.getElementById("secondArg").style.display = 'none';
+        document.getElementById("submitButton").style.display = 'none';
     }
     toggleOverlay();
 }

@@ -25,17 +25,51 @@ function getPrettyName($path)
 
 function changeName($path, $newPath)
 {
-    if (getPrettyName($path) !== '' && getPrettyName($newPath) === '') {
-        echo $path;
-        rename('zapisane/' . $path, 'zapisane/' . $newPath);
+    $oldLine = $path . "," . preparePath($path) . ";";
+    $newLine = $newPath . "," . preparePath($newPath) . ";";
 
-        $file = fopen('data.csv', 'r+');
+    //print ("$oldLine|$newLine");
+
+    $file = fopen('data.csv', 'r+');
+    if ($file) {
         $content = fread($file, filesize('data.csv'));
         rewind($file);
-        fwrite($file, str_replace($path, $newPath, $content));
+        fwrite($file, str_replace($oldLine, $newLine, $content));
+        rename('zapisane/' . preparePath($path), 'zapisane/' . preparePath($newPath));
         fclose($file);
     }
 }
+
+function deleteName($path)
+{
+    $file = fopen('data.csv', 'r+');
+    $newContent = [];
+
+    while (($line = fgets($file)) !== false) {
+        if (strpos($line, $path) === false) {
+            $newContent[] = $line;
+        }
+    }
+
+    rewind($file);
+
+    fwrite($file, implode('', $newContent));
+
+    ftruncate($file, ftell($file));
+
+    fclose($file);
+}
+
+function addNewName($newLine)
+{
+    $newLine = $newLine . "\n";
+    $file = fopen('data.csv', 'r+');
+
+    file_put_contents('data.csv', $newLine, FILE_APPEND);
+
+    fclose($file);
+}
+
 
 function preparePath($text)
 {
@@ -47,41 +81,56 @@ function preparePath($text)
 
 function deleteFolder($path)
 {
+    $files = glob('zapisane/' . $path . '/*');
 
-    if (substr($path, strlen($path) - 1, 1) != '/') {
-        $tmp = $path .= '/';
-        echo $tmp;
-        //$path .= '/';
+    $filesInside = glob('zapisane/' . $path . '/miniatury/' . '*');
+
+    foreach ($filesInside as $fileInside) {
+        if (is_file($fileInside)) {
+            unlink($fileInside);
+        }
     }
-    // $files = glob($path . '*', GLOB_MARK);
-    // foreach ($files as $file) {
-    //     if (is_dir($file)) {
-    //         deleteFolder($file);
-    //     } else {
-    //         unlink($file);
-    //     }
-    // }
-    // rmdir($path);
+
+    rmdir('zapisane/' . $path . '/miniatury');
+
+    foreach ($files as $file) {
+        if (is_file($file)) {
+            unlink($file);
+        }
+    }
+
+    rmdir('zapisane/' . $path);
 
     echo "usunoł";
-    changeName($path . "," . $path . ";", "");
+    deleteName($path . "," . $path . ";");
+}
+
+function createFolder($path)
+{
+    mkdir($path, 0777, true);
 }
 
 if (isset($_POST['changeName'])) {
     $fileName = $_POST['arg1'];
     $newFileName = $_POST['arg2'];
-    $newFileName = preparePath($newFileName);
+    $newFancyName = getPrettyName($fileName);
 
-    changeName($fileName, $newFileName);
+    changeName($newFancyName, $newFileName);
 }
 
 if (isset($_POST['addNew'])) {
-    $fileName = $_POST['arg'];
-    echo "nwm";
+    $fileName = $_POST['arg1'];
+    $line = $fileName . "," . preparePath($fileName) . ";";
+    echo "<p>$line</p>";
+
+    addNewName($line);
+    $fileName = "zapisane/" . preparePath($fileName) . "/miniatury";
+    createFolder($fileName);
+    //echo $fileName;
 }
 
 if (isset($_POST['delete'])) {
-    $fileName = $_POST['arg'];
+    $fileName = $_POST['arg1'];
     deleteFolder($fileName);
 }
 

@@ -41,6 +41,10 @@ body{
         flex-wrap: wrap;
         background-color: #fff;
     }
+
+    & .addition{
+        margin-top:20px;
+    }
  
 }
 
