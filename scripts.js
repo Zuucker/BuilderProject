@@ -55,6 +55,7 @@ const handleClick = (argument,fileName) => {
     document.getElementById("firstArg").value = fileName;
     document.getElementById("submitButton").name = argument;
 
+    document.getElementById("submitButton").name = 'changeName';
     if(argument === "changeName"){
         document.getElementById("secondArg").style.display = 'block';
         document.getElementById("submitButton").innerHTML = "Zmień nazwę";
@@ -67,6 +68,8 @@ const handleClick = (argument,fileName) => {
         document.getElementById("firstArg").style.display = 'none';
         document.getElementById("secondArg").style.display = 'none';
         document.getElementById("submitButton").style.display = 'none';
+        document.getElementById("submitButton").name = 'upload';
     }
     toggleOverlay();
 }
+

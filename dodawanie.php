@@ -55,13 +55,18 @@
         </div>
     </div>
     <div class="overlay">
-        <form method='post'>
+        <form method='post' enctype="multipart/form-data">
             <input class='invisible' id='firstArg' name='arg1' value='$file' />
             <input type='text' id="secondArg" name='arg2' value='nowe' />
-            <input type="file" class='invisible' id='files' name='files'/>
+            <input type="file" multiple class='invisible' id='files' name='files[]' />
             <button type='submit' id='submitButton' name='changeName'>Zmień nazwę</button>
             <button onclick='toggleOverlay()'>Anuluj</button>
         </form>
+        <script>
+            document.getElementById('files').addEventListener('change', function() {
+                document.getElementById('submitButton').click();
+            });
+        </script>
     </div>
 </body>
 

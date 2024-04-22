@@ -110,6 +110,30 @@ function createFolder($path)
     mkdir($path, 0777, true);
 }
 
+function saveMiniature($tmpFilePath, $miniatureTargetFilePath)
+{
+    echo "<p>$miniatureTargetFilePath</p>";
+
+}
+
+function resizeImage($filename, $newWidth, $newHeight)
+{
+    echo "halo1;";
+    list($width, $height) = getimagesize($filename);
+    echo "halo2;";
+
+    $thumb = imagecreatetruecolor($newWidth, $newHeight);
+    echo "halo3;";
+
+    $source = imagecreatefromjpeg($filename);
+    echo "halo4";
+
+    imagecopyresized($thumb, $source, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);//to coś nie halo
+    echo "halo5;";
+
+    imagejpeg($thumb, $filename);
+}
+
 if (isset($_POST['changeName'])) {
     $fileName = $_POST['arg1'];
     $newFileName = $_POST['arg2'];
@@ -121,19 +145,41 @@ if (isset($_POST['changeName'])) {
 if (isset($_POST['addNew'])) {
     $fileName = $_POST['arg1'];
     $line = $fileName . "," . preparePath($fileName) . ";";
-    echo "<p>$line</p>";
 
     addNewName($line);
     $fileName = "zapisane/" . preparePath($fileName) . "/miniatury";
     createFolder($fileName);
-    //echo $fileName;
 }
 
 if (isset($_POST['delete'])) {
-    $fileName = $_POST['arg1'];
-    deleteFolder($fileName);
+    $path = $_POST['arg1'];
+    deleteFolder($path);
 }
 
+if (isset($_POST['upload'])) {
+
+    $path = $_POST['arg1'];
+    $uploadedFiles = $_FILES['files'];
+
+    foreach ($uploadedFiles['name'] as $key => $fileName) {
+
+
+        $tmpFilePath = $uploadedFiles['tmp_name'][$key];
+
+        if ($tmpFilePath != "") {
+            $uploadDirectory = "zapisane/" . $path . "/";
+
+            $targetFilePath = $uploadDirectory . basename($fileName);
+            $miniatureTargetFilePath = $uploadDirectory . "miniatury/" . basename($fileName);
+
+            move_uploaded_file($tmpFilePath, $targetFilePath);
+
+            copy($targetFilePath, $miniatureTargetFilePath);
+
+            resizeImage($miniatureTargetFilePath, 500, 400);
+        }
+    }
+}
 
 
 ?>
