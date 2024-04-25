@@ -118,20 +118,21 @@ function saveMiniature($tmpFilePath, $miniatureTargetFilePath)
 
 function resizeImage($filename, $newWidth, $newHeight)
 {
-    echo "halo1;";
-    list($width, $height) = getimagesize($filename);
-    echo "halo2;";
+    $image = null;
 
-    $thumb = imagecreatetruecolor($newWidth, $newHeight);
-    echo "halo3;";
+    if (strpos($filename, ".png") !== false) {
+        $image = imagecreatefrompng($filename);
+        $imgResized = imagescale($image, $newWidth, $newHeight);
+        imagepng($imgResized, $filename);
+    } else if (strpos($filename, ".jpg") !== false || strpos($filename, ".jpeg") !== false) {
+        $image = imagecreatefromjpeg($filename);
+        $imgResized = imagescale($image, $newWidth, $newHeight);
+        imagejpeg($imgResized, $filename);
+    }
 
-    $source = imagecreatefromjpeg($filename);
-    echo "halo4";
-
-    imagecopyresized($thumb, $source, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);//to coś nie halo
-    echo "halo5;";
-
-    imagejpeg($thumb, $filename);
+    if ($image === null) {
+        return null;
+    }
 }
 
 if (isset($_POST['changeName'])) {
@@ -176,10 +177,12 @@ if (isset($_POST['upload'])) {
 
             copy($targetFilePath, $miniatureTargetFilePath);
 
-            resizeImage($miniatureTargetFilePath, 500, 400);
+            if (resizeImage($miniatureTargetFilePath, 500, 400)) {
+                echo "<p class='error'>Wystąpił błąd, spróbuj ponownie.</p>";
+            }
+            ;
         }
     }
 }
-
 
 ?>

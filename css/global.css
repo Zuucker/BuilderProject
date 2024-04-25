@@ -1,0 +1,34 @@
+:root {
+    --background: #fff8dc;
+    --shadow: #564646;
+    --white: #ffff;
+    --accent: #dce3ff;
+    --button:#a9baff;
+  }
+
+body{
+    margin: 0px;
+    font-size: 3vh;
+}
+
+.overlay{
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    background-color: #9b9b9b3c;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.invisible{
+    display: none;
+}
+
+.button{
+    background-color: var(--button);
+    border:1px solid var(--shadow);
+    border-radius: 5px;
+    cursor: pointer;
+    padding:1vh 5vw 1vh 5vw;
+}

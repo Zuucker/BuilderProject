@@ -3,6 +3,7 @@
 
 <head>
     <title>Dodawanie realizacji</title>
+    <link rel="stylesheet" type="text/css" href="css/global.css">
     <link rel="stylesheet" type="text/css" href="css/dodawanie.css">
     <script src="scripts.js"></script>
     <?php
@@ -25,7 +26,7 @@
                 <div class="addition">
                     <input type="text" id="newNameInput" class="invisible" name="arg1" value="Nowa realizacja">
                     <button type='submit' id="additionButton1" class="invisible" name='addNew'>Dodaj</button>
-                    <button id="additionButton2" onclick="toggleAddition(event)">Dodaj nową realizację</button>
+                    <button id="additionButton2" class="button" onclick="toggleAddition(event)">Dodaj nową realizację</button>
                     <button id="additionButton3" class="invisible" onclick="toggleAddition(event)">Anuluj</button>
                 </div>
             </form>
@@ -41,16 +42,16 @@
                     echo "<div class='record' onclick='toggleRecord(event)'>
                         $name
                         <div class='invisible'>
-                            <button onclick='handleClick(\"changeName\",\"$file\")'>Zmień nazwę</button>
-                            <button onclick='handleClick(\"delete\",\"$file\")'>Usuń</button>
-                            <button onclick='handleClick(\"addFiles\",\"$file\")'>Dodaj pliki</button>
+                            <button class='button' onclick='handleClick(\"changeName\",\"$file\")'>Zmień nazwę</button>
+                            <button class='button' onclick='handleClick(\"delete\",\"$file\")'>Usuń</button>
+                            <button class='button' onclick='handleClick(\"addFiles\",\"$file\")'>Dodaj pliki</button>
                         </div>
                     </div>";
                 }
             }
             ?>
         </div>
-        <div class="log-out">
+        <div class="log-out button">
             <a href='logout.php'>Logout</a>
         </div>
     </div>

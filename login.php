@@ -26,17 +26,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="css/global.css">
+  <link rel="stylesheet" type="text/css" href="css/logowanie.css">
 </head>
 
 <body>
-  <h2>Login</h2>
-  <form action="login.php" method="post">
-    <label for="username">Username:</label><br>
-    <input type="text" id="username" name="username"><br>
-    <label for="password">Password:</label><br>
-    <input type="password" id="password" name="password"><br><br>
-    <input type="submit" value="Login">
-  </form>
+  <div class="container">
+    <div class="title">
+      <form action="login.php" method="post">
+        <label for="username">Username:</label> 
+        <input type="text" id="username" name="username"> 
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"> 
+        <input type="submit" class="button" value="Login">
+      </form>
+    </div>
+  </div>
 
 </body>
 
