@@ -73,3 +73,10 @@ const handleClick = (argument,fileName) => {
     toggleOverlay();
 }
 
+const scrollToSection = (section) => {
+    const target = document.getElementById(section);
+
+    if(target){
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
