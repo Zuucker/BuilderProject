@@ -1,4 +1,4 @@
-.container{
+.container-1, .container-2, .container-3{
     background-color: var(--background);
     display: flex;
     justify-content: center;
@@ -6,12 +6,26 @@
     height: 100vh;
     /* width: 100vw; */
     flex-direction: column;
+    flex-wrap: wrap;
     
     & .box {
         flex: 1 0 50%;
         height: 200px;
-        width: 49vw;
-     }
+        width: 48vw;
+        border: 1px solid black;
+        box-sizing: border-box;
+    }
+
+    & .small-box{
+        flex: 1 0 50%;
+        /* height: 200px; */
+        width: 48vw;
+        border: 1px solid black;
+        box-sizing: border-box;
+        padding: 20px;
+        padding-top: 8vh;
+        
+    }
 
     & .gallery{
         margin: auto;
@@ -20,6 +34,43 @@
         height: 40vh !important;
     }
 }
+
+.container-3{
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+
+
+@media (max-width: 600px) {
+    .container-1 {
+      flex-wrap: wrap;
+
+      & .box:nth-child(1){
+        margin-top: 8vh;
+      }
+    }
+
+    .box {
+        flex: 1 0 10% !important;
+        width: 100vw !important;
+    }
+/*     
+    .container-3 {
+        flex-wrap: wrap;
+  
+        & .box:nth-child(1){
+          margin-top: 8vh;
+        }
+  
+    } */
+
+    .small-box{
+        flex: 1 0 10% !important;
+        width: 100vw !important;
+        height: 200px;
+    }
+
+  }
 
 #about{
     flex-wrap: wrap;
@@ -35,6 +86,7 @@
 
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 
     & div{
         height: inherit;
@@ -45,6 +97,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        min-width: 30vw;
+        background-color: red;
 
         & span{
             cursor: pointer;

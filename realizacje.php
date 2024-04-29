@@ -54,26 +54,6 @@
         <div class="box">Opis co robimy etc</div>
         <div class="box">jakiś obrazek </div>
     </div>
-    <div class="container-2" id="realizations">
-        <div>3 przykładowe realizacje w wierszu i guzik więcej</div>
-    </div>
-    <div class="container-3" id="contact">
-        <div class="small-box">
-            <p>"WILLIHAUS" SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ</p>
-            <p>Tarnowskie Góry</p>
-            <p>ul. Towarowa 1 nr lokalu 308</p>
-            <p>42-600 Tarnowskie Góry</p>
-        </div>
-        <div class="small-box">
-            <p>
-                <span>Firma budowlana WILLIHAUS powstała w 2019 z połączenia ambicji, zrozumienia potrzeb rynkowych oraz odpowiedzi na indywidualne zapotrzebowania.</span><br>
-                <span>Złożona jest z dynamicznego zespółu doświadczonych fachowców, którzy dostarczają wysokiej jakości usługi budowlane dla naszych klientów.</span><br>
-                <span>Z pasją i zaangażowaniem realizujemy różnorodne projekty, od nowych budów po modernizacje istniejących obiektów.</span><br>
-                <span>Nasze indywidualne podejście oraz skoncentrowana uwaga na potrzebach klienta sprawiają, że każdy projekt jest dla nas wyjątkowy.</span><br>
-                <span>Zaufaj nam, a wspólnie stworzymy budynki, które spełnią Twoje najwyższe oczekiwania.</span><br>
-            </p>
-        </div>
-    </div>
 </body>
 
 </html>
