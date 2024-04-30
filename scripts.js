@@ -26,6 +26,15 @@ const toggleOverlay = () =>{
     }
 }
 
+const expandMiniature = (path) => {
+    toggleOverlay();
+    const img = document.getElementById("preview");
+    if(img){
+        img.src = path;
+    }
+
+}
+
 const toggleAddition = (e) =>{
 
     e.preventDefault();
@@ -79,4 +88,8 @@ const scrollToSection = (section) => {
     if(target){
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+}
+
+const redirectTo = (path) => {
+    window.location.href = path;
 }

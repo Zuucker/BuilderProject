@@ -52,7 +52,10 @@
         </div>
         <div class="box">Coś o firmie jaka jest fajna etc</div>
         <div class="box">Opis co robimy etc</div>
-        <div class="box">jakiś obrazek </div>
+        <div class="box">jakiś obrazek <br>
+        to som realizacje
+        </div>
+       
     </div>
 </body>
 
