@@ -185,4 +185,20 @@ if (isset($_POST['upload'])) {
     }
 }
 
+function realizationComponent($path)
+{
+    $name = getPrettyName($path);
+    $images = readFiles("zapisane/" . $path . "/miniatury/");
+
+    if (count($images) < 3 || $name === '') {
+        return '';
+    }
+
+    $imagePath = "/zapisane/" . $path . "/miniatury/" . $images[2];
+    return "<div class='realization' onclick='redirectTo(\"realizacja.php/$path\")'>
+                <img src='$imagePath'>
+                <span>$name</span>
+            </div>";
+}
+
 ?>

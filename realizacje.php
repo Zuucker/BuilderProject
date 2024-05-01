@@ -27,15 +27,9 @@
 
 <body>
     <div class="navbar">
-        <div class="logo"  onClick="scrollToSection('about')">
+        <div class="logo" onClick="redirectTo('/')">
             <img src="house_icon.svg">
             <span>WILLIHAUS</span>
-        </div>
-        <div class="menu-item">
-            <span onClick="scrollToSection('realizations')">Realizacje</span>
-         </div>
-        <div class="menu-item">
-            <span  onClick="scrollToSection('contact')">Kontakt</span>
         </div>
     </div>
     <div class="container-1" id="about">

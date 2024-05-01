@@ -50,26 +50,47 @@
             
             <script src="scripts/scrollGallery.js"></script>
         </div>
-        <div class="box">Coś o firmie jaka jest fajna etc</div>
-        <div class="box">Opis co robimy etc</div>
-        <div class="box">jakiś obrazek </div>
+        <div class="box box-2">Coś o firmie jaka jest fajna etc</div>
+        <div class="box box-3"> 
+            <span>Wznoszenie Budynków mieszkalnych i niemieszkalnych</span>
+            <span>Rozbiórka i burzenie obiektów budowlanych</span>
+            <span>Wykonywanie instalacji elektrycznych, wodno-kanalizacyjnych, cieplnych, gazowych i klimatyzacyjnych</span>
+            <span>Zakładanie stolarki budowlanej</span>
+            <span>Tynkowanie, malowanie i szklenie oraz inne roboty wykończeniowe.</span>
+            <span>Wykonywanie konstrukcji i pokryć dachowych</span>
+            <span>Oraz innne roboty budowlane dostosowane do potrzeb klienta</span>
+        </div>
+        <div class="box box-4">
+            <img src="/example_images/image11.png">
+        </div>
     </div>
     <div class="container-2" id="realizations">
-        <div>3 przykładowe realizacje w wierszu i guzik więcej</div>
+        <?php
+        require 'utils.php';
+
+        $realizations = readFiles('zapisane/');
+
+        for ($i = 2; $i < 5; $i++) {
+            echo realizationComponent($realizations[$i]);
+        }
+        ?>
     </div>
+    <div class="more-realizations">
+            <button class="button" onClick="redirectTo('realizacje.php')">Więcej realizacji</button>
+        </div>
     <div class="container-3" id="contact">
         <div class="small-box">
-            <p>"WILLIHAUS" SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ</p>
-            <p>Tarnowskie Góry</p>
+            <p>WILLIHAUS spółka z ograniczoną odpowiedzialnością</p>
             <p>ul. Towarowa 1 nr lokalu 308</p>
             <p>42-600 Tarnowskie Góry</p>
+            <p>Telefon DODAJ_NUMER</p>
         </div>
         <div class="small-box">
             <p>
-                <span>Firma budowlana WILLIHAUS powstała w 2019 z połączenia ambicji, zrozumienia potrzeb rynkowych oraz odpowiedzi na indywidualne zapotrzebowania.</span><br>
-                <span>Złożona jest z dynamicznego zespółu doświadczonych fachowców, którzy dostarczają wysokiej jakości usługi budowlane dla naszych klientów.</span><br>
-                <span>Z pasją i zaangażowaniem realizujemy różnorodne projekty, od nowych budów po modernizacje istniejących obiektów.</span><br>
-                <span>Nasze indywidualne podejście oraz skoncentrowana uwaga na potrzebach klienta sprawiają, że każdy projekt jest dla nas wyjątkowy.</span><br>
+                <span>Firma budowlana WILLIHAUS powstała w 2019 z połączenia ambicji, zrozumienia potrzeb rynkowych oraz odpowiedzi na indywidualne zapotrzebowania.</span><br><br>
+                <span>Złożona jest z dynamicznego zespółu doświadczonych fachowców, którzy dostarczają wysokiej jakości usługi budowlane dla naszych klientów.</span><br><br>
+                <span>Z pasją i zaangażowaniem realizujemy różnorodne projekty, od nowych budów po modernizacje istniejących obiektów.</span><br><br>
+                <span>Nasze indywidualne podejście oraz skoncentrowana uwaga na potrzebach klienta sprawiają, że każdy projekt jest dla nas wyjątkowy.</span><br><br>
                 <span>Zaufaj nam, a wspólnie stworzymy budynki, które spełnią Twoje najwyższe oczekiwania.</span><br>
             </p>
         </div>

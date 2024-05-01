@@ -15,7 +15,6 @@ const showPrev = () =>  {
 }
 
 const showNext = () =>  {
-    console.log("next")
     currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
     updateSlider();
 }

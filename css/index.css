@@ -16,6 +16,26 @@
         box-sizing: border-box;
     }
 
+    & .box-2,.box-3,.box-4{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 2.6vh;
+        text-align: center;
+    }
+
+    .box-3{
+        padding-top: 8vh;
+        & span{
+            margin-bottom: 1vh;
+        }
+    }
+
+    .box-4 > img{
+        max-height: inherit !important;
+    }
+
     & .small-box{
         flex: 1 0 50%;
         /* height: 200px; */
@@ -33,11 +53,47 @@
         width: 40vw !important;
         height: 40vh !important;
     }
+
+    & .realization{
+        margin-top: 8vh;
+        flex: 1 0 60%;
+        height: 80vh;
+        width: 30vw;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        margin: 1vw;
+
+        & img{
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+}
+
+.more-realizations{
+    width: 100vw;
+    display:flex;
+    justify-content: center;
+    position:relative;
+    bottom: 15vh;
 }
 
 .container-3{
     display: flex !important;
     flex-wrap: wrap !important;
+
+    & .small-box{
+        display: flex !important;
+        flex-direction: column;
+        flex-wrap: wrap !important;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
 }
 
 
@@ -54,23 +110,27 @@
         flex: 1 0 10% !important;
         width: 100vw !important;
     }
-/*     
-    .container-3 {
-        flex-wrap: wrap;
-  
-        & .box:nth-child(1){
-          margin-top: 8vh;
-        }
-  
-    } */
+
+    .box-4{
+        display:none !important;
+    }
 
     .small-box{
         flex: 1 0 10% !important;
         width: 100vw !important;
         height: 200px;
+        font-size: 2.5vh;
     }
 
-  }
+    .realization{
+        flex: 1 0 10% !important;
+    }
+
+    .more-realizations{
+        position:relative;
+        top: 6vh;
+    }
+}
 
 #about{
     flex-wrap: wrap;
