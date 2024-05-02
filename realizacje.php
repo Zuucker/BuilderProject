@@ -33,23 +33,37 @@
         </div>
     </div>
     <div class="container-1" id="about">
-        <div class="box">
-            <div class="gallery">
-                <div class="slider">
-                    <img src="example_images\image11.png" alt="Image 1" class="preview">
-                    <img src="example_images\image12.png" alt="Image 2" class="preview">
-                    <img src="example_images\image13.png" alt="Image 3" class="preview">
-                </div>
-            </div>
-            
-            <script src="scripts/scrollGallery.js"></script>
-        </div>
-        <div class="box">Coś o firmie jaka jest fajna etc</div>
-        <div class="box">Opis co robimy etc</div>
-        <div class="box">jakiś obrazek <br>
-        to som realizacje
-        </div>
-       
+    <?php
+    require 'utils.php';
+
+
+    $path = "zapisane/";
+
+    $results = readFiles($path);
+    //wrócić tutaj
+    
+    $newPath = "/" . $path . "miniatury/" . $results[2];
+    $prettyName = getPrettyName($argument);
+
+    echo "<div class='miniature'>
+                        <img src='$newPath'>
+                    </div>
+                    <div class='title'>$prettyName</div>";
+
+    echo "</div>";
+    echo "<div class='grid'>";
+
+    foreach ($results as $result) {
+        if ($result !== "." && $result !== ".." && $result !== "miniatury") {
+            $newPath = "/" . $path . "miniatury/" . $result;
+            $originalPath = "/" . $path . $result;
+            echo "<img src='$newPath' onclick='expandMiniature(\"$originalPath\")'>";
+        }
+    }
+
+    echo "</div>";
+
+    ?>
     </div>
 </body>
 

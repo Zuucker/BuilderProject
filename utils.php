@@ -165,13 +165,19 @@ if (isset($_POST['upload'])) {
     foreach ($uploadedFiles['name'] as $key => $fileName) {
 
 
+
         $tmpFilePath = $uploadedFiles['tmp_name'][$key];
+
+        echo "<p>$tmpFilePath</p>";
 
         if ($tmpFilePath != "") {
             $uploadDirectory = "zapisane/" . $path . "/";
 
             $targetFilePath = $uploadDirectory . basename($fileName);
             $miniatureTargetFilePath = $uploadDirectory . "miniatury/" . basename($fileName);
+
+            echo "<p>$tmpFilePath</p>";
+            echo "<p>$targetFilePath</p>";
 
             move_uploaded_file($tmpFilePath, $targetFilePath);
 

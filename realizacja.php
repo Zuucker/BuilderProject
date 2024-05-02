@@ -56,7 +56,8 @@
                 foreach ($results as $result) {
                     if ($result !== "." && $result !== ".." && $result !== "miniatury") {
                         $newPath = "/" . $path . "miniatury/" . $result;
-                        echo "<img src='$newPath' onclick='expandMiniature(\"$newPath\")'>";
+                        $originalPath = "/" . $path . $result;
+                        echo "<img src='$newPath' onclick='expandMiniature(\"$originalPath\")'>";
                     }
                 }
 

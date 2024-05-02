@@ -33,7 +33,8 @@
     }
 
     .box-4 > img{
-        max-height: inherit !important;
+        overflow: hidden;
+        width: 40vw;
     }
 
     & .small-box{
