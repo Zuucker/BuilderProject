@@ -1,9 +1,12 @@
 :root {
-    --background: #fff8dc;
-    --shadow: #564646;
+    --background: #f9fcfe;
+    --shadow: #645f74;
     --white: #ffff;
     --accent: #dce3ff;
-    --button:#a9baff;
+    --primary: #3480ea;
+    --secondary: #2165c4;
+    --button:#60ace6;
+    --black: #000000;
   }
 
 body{
@@ -27,8 +30,14 @@ body{
 
 .button{
     background-color: var(--button);
-    border:1px solid var(--shadow);
+    border:2px solid var(--shadow);
     border-radius: 5px;
     cursor: pointer;
     padding:1vh 5vw 1vh 5vw;
+    box-shadow: 2px 2px 2px 0px var(--shadow);
+}
+
+.button:hover{
+    background-color: var(--primary);
+    border:2px solid var(--black);
 }

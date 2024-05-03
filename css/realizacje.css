@@ -1,0 +1,94 @@
+body{
+    background-color: var(--background);
+}
+
+.container{
+    background-color: var(--background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* width: 100vw; */
+    flex-wrap: wrap;
+
+    & .realization{
+        margin-top: 8vh;
+        flex: 1 0 30%;
+        height: 80vh;
+        width: 30vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        margin: 1vw;
+
+        & img{
+            max-width: 100%;
+            height: 60vh;
+
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .realization{
+        flex: 1 0 40% !important;
+        width: 50vw !important;
+    }
+}
+
+@media (max-width: 700px) {
+    .realization{
+        flex: 1 0 100% !important;
+        width: 100vw !important;
+    }
+}
+
+
+.navbar{
+    background-color: red;
+    position: fixed;
+    /* top:0px; */
+    width: 100%;
+    height: 8vh;
+    z-index: 10;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    & div{
+        height: inherit;
+        flex:1;
+    }
+
+    & .menu-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 30vw;
+        background-color: red;
+
+        & span{
+            cursor: pointer;
+        }
+    }
+
+    & .logo{
+        height: inherit;
+        display: flex;
+        cursor: pointer;
+
+        & img{
+            margin: auto 10px auto 10px;
+            height: 80%;
+        }
+        & span{
+            font-size: 6vh;
+            font-family: "Nunito Sans", sans-serif;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+    }
+}

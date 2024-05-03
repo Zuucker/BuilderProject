@@ -51,6 +51,7 @@
                     <div class='title'>$prettyName</div>";
 
                 echo "</div>";
+                echo "<span class='description'>Więcej zdjęć z tej realizacji:  </span>";
                 echo "<div class='grid'>";
 
                 foreach ($results as $result) {

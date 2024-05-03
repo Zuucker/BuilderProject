@@ -9,7 +9,7 @@
     <title>Builder Project</title>
     <script src="scripts.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script>
+    <!-- <script>
         window.addEventListener('wheel', function(e) {
              var scrollPosition = window.scrollY;
 
@@ -22,7 +22,7 @@
 
              e.preventDefault();
         },{passive:false});
-    </script>
+    </script> -->
 </head>
 
 <body>
@@ -50,7 +50,12 @@
             
             <script src="scripts/scrollGallery.js"></script>
         </div>
-        <div class="box box-2">Coś o firmie jaka jest fajna etc</div>
+        <div class="box box-2">
+            <span>Firma budowlana WILLIHAUS oferuje kompleksowe wsparcie w tworzeniu wymarzonych domów.</span>
+            <span>Dzięki doświadczeniu i profesjonalizmowi zapewniamy solidną i estetyczną realizację projektów.</span>
+            <span>Nasze indywidualne podejście oraz otwarta komunikacja gwarantują satysfakcję klientów.</span>
+            <span>Zespół specjalistów dba o każdy detal, tworząc domy idealnie dopasowane do potrzeb i stylu życia klientów.</span>
+            </div>
         <div class="box box-3"> 
             <span>Wznoszenie Budynków mieszkalnych i niemieszkalnych</span>
             <span>Rozbiórka i burzenie obiektów budowlanych</span>
@@ -61,9 +66,14 @@
             <span>Oraz innne roboty budowlane dostosowane do potrzeb klienta</span>
         </div>
         <div class="box box-4">
-            <img src="/example_images/image11.png">
+            <img src="/example_images/image12.png">
         </div>
     </div>
+    
+    <div class="text">
+        <span>Przykładowe realizacje firmy:</span>
+    </div>
+
     <div class="container-2" id="realizations">
         <?php
         require 'utils.php';
@@ -75,9 +85,11 @@
         }
         ?>
     </div>
+
     <div class="more-realizations">
-            <button class="button" onClick="redirectTo('realizacje.php')">Więcej realizacji</button>
-        </div>
+        <button class="button" onClick="redirectTo('realizacje.php')">Więcej realizacji</button>
+    </div>
+
     <div class="container-3" id="contact">
         <div class="small-box">
             <p>WILLIHAUS spółka z ograniczoną odpowiedzialnością</p>
@@ -85,14 +97,13 @@
             <p>42-600 Tarnowskie Góry</p>
             <p>Telefon DODAJ_NUMER</p>
         </div>
+        <div class="line"></div>
         <div class="small-box">
-            <p>
-                <span>Firma budowlana WILLIHAUS powstała w 2019 z połączenia ambicji, zrozumienia potrzeb rynkowych oraz odpowiedzi na indywidualne zapotrzebowania.</span><br><br>
-                <span>Złożona jest z dynamicznego zespółu doświadczonych fachowców, którzy dostarczają wysokiej jakości usługi budowlane dla naszych klientów.</span><br><br>
-                <span>Z pasją i zaangażowaniem realizujemy różnorodne projekty, od nowych budów po modernizacje istniejących obiektów.</span><br><br>
-                <span>Nasze indywidualne podejście oraz skoncentrowana uwaga na potrzebach klienta sprawiają, że każdy projekt jest dla nas wyjątkowy.</span><br><br>
-                <span>Zaufaj nam, a wspólnie stworzymy budynki, które spełnią Twoje najwyższe oczekiwania.</span><br>
-            </p>
+            <span>Firma WILLIHAUS powstała w 2019 z połączenia ambicji, zrozumienia potrzeb rynkowych oraz odpowiedzi na indywidualne zapotrzebowania.</span><br><br>
+            <span>Złożona jest z dynamicznego zespółu doświadczonych fachowców, którzy dostarczają wysokiej jakości usługi budowlane dla naszych klientów.</span><br><br>
+            <span>Z pasją i zaangażowaniem realizujemy różnorodne projekty, od nowych budów po modernizacje istniejących obiektów.</span><br><br>
+            <span>Nasze indywidualne podejście oraz skoncentrowana uwaga na potrzebach klienta sprawiają, że każdy projekt jest dla nas wyjątkowy.</span><br><br>
+            <span>Zaufaj nam, a wspólnie stworzymy budynki, które spełnią Twoje najwyższe oczekiwania.</span><br>
         </div>
     </div>
 </body>

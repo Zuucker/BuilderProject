@@ -196,7 +196,7 @@ function realizationComponent($path)
     $name = getPrettyName($path);
     $images = readFiles("zapisane/" . $path . "/miniatury/");
 
-    if (count($images) < 3 || $name === '') {
+    if ($images == '' || count($images) < 3 || $name === '') {
         return '';
     }
 

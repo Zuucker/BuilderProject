@@ -1,3 +1,7 @@
+body{
+    overflow-x: hidden;
+}
+
 .container-1, .container-2, .container-3{
     background-color: var(--background);
     display: flex;
@@ -12,7 +16,7 @@
         flex: 1 0 50%;
         height: 200px;
         width: 48vw;
-        border: 1px solid black;
+        /* border: 1px solid black; */
         box-sizing: border-box;
     }
 
@@ -25,6 +29,11 @@
         text-align: center;
     }
 
+    .box-2 > span{
+        margin-bottom: 1.5vh;
+        font-size: 3vh;
+    }
+
     .box-3{
         padding-top: 8vh;
         & span{
@@ -35,17 +44,23 @@
     .box-4 > img{
         overflow: hidden;
         width: 40vw;
+        margin-bottom: 2vh;
+        border-radius: 10px;
+        box-shadow: 2px 2px 2px 0px var(--shadow);
     }
 
     & .small-box{
         flex: 1 0 50%;
         /* height: 200px; */
         width: 48vw;
-        border: 1px solid black;
-        box-sizing: border-box;
-        padding: 20px;
+        /* border: 1px solid black;
+        box-sizing: border-box; */
+        padding: 4vw;
         padding-top: 8vh;
-        
+    }
+
+    & .small-box:first-of-type{
+        width: 25vw;
     }
 
     & .gallery{
@@ -53,6 +68,8 @@
         margin-top: 10vh;
         width: 40vw !important;
         height: 40vh !important;
+        border-radius: 10px;
+        box-shadow: 2px 2px 2px 0px var(--shadow);
     }
 
     & .realization{
@@ -71,7 +88,18 @@
         & img{
             max-width: 100%;
             max-height: 100%;
+            border-radius: 10px;
+            box-shadow: 2px 2px 2px 0px var(--shadow);
         }
+    }
+
+    & .line{
+        height: 80%;
+        min-width: 0.5vw;
+        border-width: 0px 2px 0px 1px;
+        border-color: var(--shadow);
+        border-style: solid;
+        --border-opacity: 0.5;
     }
 }
 
@@ -80,7 +108,7 @@
     display:flex;
     justify-content: center;
     position:relative;
-    bottom: 15vh;
+    bottom: 8vh;
 }
 
 .container-3{
@@ -107,6 +135,10 @@
       }
     }
 
+    .container-3 {
+        flex-direction: row !important;
+    }
+
     .box {
         flex: 1 0 10% !important;
         width: 100vw !important;
@@ -117,9 +149,8 @@
     }
 
     .small-box{
-        flex: 1 0 10% !important;
-        width: 100vw !important;
-        height: 200px;
+        flex: 1 0 100% !important;
+        width: 90vw !important;
         font-size: 2.5vh;
     }
 
@@ -131,6 +162,10 @@
         position:relative;
         top: 6vh;
     }
+
+    .line{
+        display: none;
+    }
 }
 
 #about{
@@ -138,12 +173,13 @@
 }
 
 .navbar{
-    background-color: red;
+    background-color: var(--primary);
     position: fixed;
     /* top:0px; */
-    width: 100%;
+    width: 100vw;
     height: 8vh;
     z-index: 10;
+    box-shadow: 0px 3px 4px 0px var(--shadow);
 
     display: flex;
     flex-direction: row;
@@ -159,10 +195,21 @@
         justify-content: center;
         align-items: center;
         min-width: 30vw;
-        background-color: red;
+        background-color: var(--primary);
 
         & span{
             cursor: pointer;
+            /* padding: 5px 10px 5px 10px; */
+            border-radius: 10px;
+            height: inherit;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        & span:hover{
+            background-color: var(--secondary);
         }
     }
 
@@ -170,6 +217,9 @@
         height: inherit;
         display: flex;
         cursor: pointer;
+        max-width: fit-content;
+        border-radius: 10px;
+        margin-left: 4vw;
 
         & img{
             margin: auto 10px auto 10px;
@@ -180,6 +230,11 @@
             font-family: "Nunito Sans", sans-serif;
             margin-top: auto;
             margin-bottom: auto;
+            margin-right: 10px;
         }
+    }
+    & .logo:hover{
+        background-color: var(--secondary);
+        box-shadow: 2px 0px 2px 0px var(--secondary);
     }
 }
