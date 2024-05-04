@@ -84,9 +84,22 @@ const handleClick = (argument,fileName) => {
 
 const scrollToSection = (section) => {
     const target = document.getElementById(section);
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const absoluteTop = target.getBoundingClientRect().top + scrollTop;
+
+    const vh = window.innerHeight / 100;
 
     if(target){
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        let dist = absoluteTop - (8 * vh);
+
+        if(section==="moreRealizations") {
+            dist -= (3 * vh);
+        }
+
+        window.scrollTo({
+            top: dist,
+            behavior: 'smooth'
+        });
     }
 }
 

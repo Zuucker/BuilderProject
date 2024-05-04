@@ -1,17 +1,61 @@
 :root {
     --background: #f9fcfe;
-    --shadow: #645f74;
+    --shadow: #645f7471;
     --white: #ffff;
     --accent: #dce3ff;
     --primary: #3480ea;
     --secondary: #2165c4;
     --button:#60ace6;
     --black: #000000;
-  }
+}
 
-body{
-    margin: 0px;
-    font-size: 3vh;
+body {
+    margin: 0;
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: #f8f8f8;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px var(--shadow);
+    z-index: 1000;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-right: 2vw;
+    margin-top: auto;
+    cursor: pointer;
+
+    & img {
+        height: 30px;
+        margin-right: 10px;
+     }
+
+    & span{
+        font-family: "Nunito Sans", sans-serif;
+        font-size: 5vh;
+    }
+}
+
+.menu-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+
+    & span{
+        cursor: pointer;
+    }
 }
 
 .overlay{
@@ -28,16 +72,23 @@ body{
     display: none;
 }
 
-.button{
+.button {
     background-color: var(--button);
-    border:2px solid var(--shadow);
-    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
     cursor: pointer;
-    padding:1vh 5vw 1vh 5vw;
-    box-shadow: 2px 2px 2px 0px var(--shadow);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.button:hover{
-    background-color: var(--primary);
-    border:2px solid var(--black);
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow);
 }
