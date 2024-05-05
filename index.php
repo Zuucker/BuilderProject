@@ -44,7 +44,7 @@
             <span>Nasze indywidualne podejście oraz otwarta komunikacja gwarantują satysfakcję klientów.</span><br><br>
             <span>Zespół specjalistów dba o każdy detal, tworząc domy idealnie dopasowane do potrzeb i stylu życia klientów.</span><br>
             <br><br>
-            <span>Z nami wyremontujesz swój dom marzeń!</span>
+            <span>Z nami wyremontujesz swój wymarzony dom!</span>
          </div>
 
         <div class="box box-3"> 

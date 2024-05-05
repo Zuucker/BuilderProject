@@ -18,7 +18,7 @@ const toggleOverlay = () =>{
     const overlayDiv = document.getElementsByClassName("overlay")[0];
     if(overlayDiv.style.display === 'none' || overlayDiv.style.display === '')
     {
-        overlayDiv.style.display = 'block';
+        overlayDiv.style.display = 'flex';
     }
     else
     {
@@ -60,7 +60,7 @@ const toggleAddition = (e) =>{
     }
 }
 
-const handleClick = (argument,fileName) => {
+const handleClick = (argument, fileName) => {
     document.getElementById("firstArg").value = fileName;
     document.getElementById("submitButton").name = argument;
 
@@ -92,7 +92,7 @@ const scrollToSection = (section) => {
     if(target){
         let dist = absoluteTop - (8 * vh);
 
-        if(section==="moreRealizations") {
+        if(section === "moreRealizations") {
             dist -= (3 * vh);
         }
 

@@ -100,6 +100,8 @@ body {
     max-width: fit-content;
     max-width: 33%;
     cursor: pointer;
+    background-color: var(--white);
+    box-shadow: 0 2px 4px var(--shadow);
 
     & img{
         max-width: 100%;
@@ -162,14 +164,6 @@ body {
     .container-3 .small-box:first-of-type span:last-of-type{
         margin-top: 40px;
     }
-}
-
-.text-important{
-    padding-left: 20px;
-    font-size: 4vh;
-    font-style: oblique;
-    font-weight: bold;
-    padding-bottom: 10px;
 }
 
 .box:hover,

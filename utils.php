@@ -162,31 +162,30 @@ if (isset($_POST['upload'])) {
     $path = $_POST['arg1'];
     $uploadedFiles = $_FILES['files'];
 
+    $file_path = 'config.ini';
+    $config = parse_ini_file($file_path);
+
     foreach ($uploadedFiles['name'] as $key => $fileName) {
 
-
-
         $tmpFilePath = $uploadedFiles['tmp_name'][$key];
-
-        echo "<p>$tmpFilePath</p>";
 
         if ($tmpFilePath != "") {
             $uploadDirectory = "zapisane/" . $path . "/";
 
-            $targetFilePath = $uploadDirectory . basename($fileName);
-            $miniatureTargetFilePath = $uploadDirectory . "miniatury/" . basename($fileName);
+            $newName = time() . ".png";
 
-            echo "<p>$tmpFilePath</p>";
-            echo "<p>$targetFilePath</p>";
+            $targetFilePath = $uploadDirectory . $newName;
+            $miniatureTargetFilePath = $uploadDirectory . "miniatury/" . $newName;
 
             move_uploaded_file($tmpFilePath, $targetFilePath);
 
-            copy($targetFilePath, $miniatureTargetFilePath);
+            list($width, $height, $type) = getimagesize($targetFilePath);
 
-            if (resizeImage($miniatureTargetFilePath, 500, 400)) {
-                echo "<p class='error'>Wystąpił błąd, spróbuj ponownie.</p>";
-            }
-            ;
+            $thumb = imagecreatetruecolor($config['newWidth'], $config['newHeight']);
+            $source = imagecreatefromjpeg($targetFilePath);
+
+            imagecopyresized($thumb, $source, 0, 0, 0, 0, $config['newWidth'], $config['newHeight'], $width, $height);
+            imagepng($thumb, $miniatureTargetFilePath);
         }
     }
 }

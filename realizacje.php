@@ -17,6 +17,11 @@
             <span>WILLIHAUS</span>
         </div>
     </div>
+
+    <div class="text-important">
+        <span>Wybrane realizacje naszej firmy</span>
+    </div>
+
     <div class="container">
     <?php
     require 'utils.php';

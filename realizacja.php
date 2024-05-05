@@ -48,14 +48,14 @@
                 echo "<div class='miniature'>
                         <img src='$newPath'>
                     </div>
-                    <div class='title'>$prettyName</div>";
+                    <div class='title text-important'>$prettyName</div>";
 
                 echo "</div>";
-                echo "<span class='description'>Więcej zdjęć z tej realizacji:  </span>";
+                echo "<span class='text-important'>Więcej zdjęć z tej realizacji</span>";
                 echo "<div class='grid'>";
 
                 foreach ($results as $result) {
-                    if ($result !== "." && $result !== ".." && $result !== "miniatury") {
+                    if ($result !== "." && $result !== ".." && $result !== "miniatury" && $result !== $results[2]) {
                         $newPath = "/" . $path . "miniatury/" . $result;
                         $originalPath = "/" . $path . $result;
                         echo "<img src='$newPath' onclick='expandMiniature(\"$originalPath\")'>";
@@ -70,7 +70,7 @@
     <div class="overlay">
         <div class="content">
             <img src="" id="preview">
-            <button class="button" onclick="toggleOverlay()">X</button>
+            <button class="button" onclick="toggleOverlay()">Wróć</button>
         </div>
     </div>
 </body>
