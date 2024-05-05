@@ -5,8 +5,9 @@
     <link rel="stylesheet" type="text/css" href="/css/global.css">
     <link rel="stylesheet" type="text/css" href="/css/realizacja.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/icon.png">
     <title>Builder Project</title>
-    <script src="/scripts.js"></script>
+    <script src="/scripts/scripts.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -21,7 +22,7 @@
     <div class="container">
         <div class="row">
             <?php
-            require 'utils.php';
+            require './scripts/utils.php';
 
             $currentURL = $_SERVER['REQUEST_URI'];
 

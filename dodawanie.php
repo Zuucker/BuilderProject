@@ -5,9 +5,10 @@
     <title>Dodawanie realizacji</title>
     <link rel="stylesheet" type="text/css" href="css/global.css">
     <link rel="stylesheet" type="text/css" href="css/dodawanie.css">
-    <script src="scripts.js"></script>
+    <link rel="icon" type="image/x-icon" href="/icon.png">
+    <script src="/scripts/scripts.js"></script>
     <?php
-    require 'utils.php';
+    require './scripts/utils.php';
     ?>
 </head>
 

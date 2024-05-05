@@ -6,8 +6,9 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/gallery.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/icon.png">
     <title>WILLIHAUS</title>
-    <script src="scripts.js"></script>
+    <script src="/scripts/scripts.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -64,12 +65,12 @@
     </div>
     
     <div>
-        <span class="text-important" id="moreRealizations">Przykładowe realizacje firmy:</span>
+        <span class="text-important" id="moreRealizations">Przykładowe realizacje firmy</span>
     </div>
 
     <div class="container-2" id="realizations">
         <?php
-        require 'utils.php';
+        require './scripts/utils.php';
 
         $realizations = readFiles('zapisane/');
 

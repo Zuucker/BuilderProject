@@ -46,7 +46,10 @@ function deleteName($path)
     $newContent = [];
 
     while (($line = fgets($file)) !== false) {
-        if (strpos($line, $path) === false) {
+        $value = explode(",", $line)[1];
+        $savedPath = substr($value, 0, strlen($value) - 2);
+
+        if (!($savedPath === $path && strlen($savedPath) === strlen($path))) {
             $newContent[] = $line;
         }
     }
@@ -101,19 +104,12 @@ function deleteFolder($path)
 
     rmdir('zapisane/' . $path);
 
-    echo "usunoł";
-    deleteName($path . "," . $path . ";");
+    deleteName($path);
 }
 
 function createFolder($path)
 {
     mkdir($path, 0777, true);
-}
-
-function saveMiniature($tmpFilePath, $miniatureTargetFilePath)
-{
-    echo "<p>$miniatureTargetFilePath</p>";
-
 }
 
 function resizeImage($filename, $newWidth, $newHeight)

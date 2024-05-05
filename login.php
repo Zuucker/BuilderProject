@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <title>Login</title>
   <link rel="stylesheet" type="text/css" href="css/global.css">
   <link rel="stylesheet" type="text/css" href="css/logowanie.css">
+  <link rel="icon" type="image/x-icon" href="/icon.png">
 </head>
 
 <body>

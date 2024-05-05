@@ -190,6 +190,7 @@
     max-width: calc(33% - 2vh);
     margin: 1vh;
     box-shadow: 0 2px 4px var(--shadow);
+    cursor: pointer;
 }
 
 .overlay {

@@ -62,7 +62,6 @@ const toggleAddition = (e) =>{
 
 const handleClick = (argument, fileName) => {
     document.getElementById("firstArg").value = fileName;
-    document.getElementById("submitButton").name = argument;
 
     document.getElementById("submitButton").name = 'changeName';
     if(argument === "changeName"){
@@ -77,9 +76,14 @@ const handleClick = (argument, fileName) => {
         document.getElementById("firstArg").style.display = 'none';
         document.getElementById("secondArg").style.display = 'none';
         document.getElementById("submitButton").style.display = 'none';
-        document.getElementById("submitButton").name = 'upload';
+        argument = 'upload';
     }
     toggleOverlay();
+
+    setTimeout(()=>{    
+        document.getElementById("submitButton").name = argument;
+    }, 20)
+    
 }
 
 const scrollToSection = (section) => {
