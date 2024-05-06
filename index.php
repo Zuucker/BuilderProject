@@ -10,6 +10,7 @@
     <title>WILLIHAUS</title>
     <script src="/scripts/scripts.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Kamil Giec - Zuucker">
 </head>
 
 <body>

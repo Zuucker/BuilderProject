@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/dodawanie.css">
     <link rel="icon" type="image/x-icon" href="/icon.png">
     <script src="/scripts/scripts.js"></script>
+    <meta name="author" content="Kamil Giec - Zuucker">
     <?php
     require './scripts/utils.php';
     ?>
