@@ -1,3 +1,7 @@
+let overlayImageIndex = 0;
+let startX;
+let startY;
+
 const toggleRecord = (event) =>{
     const parentDiv = event.target;
     const controlsDiv =  parentDiv.childNodes[1];
@@ -31,6 +35,9 @@ const expandMiniature = (path) => {
     const img = document.getElementById("preview");
     if(img){
         img.src = path;
+        const allImages = [...document.getElementsByTagName("IMG")];
+        const images = allImages.filter((img) => img.onclick);
+        overlayImageIndex = images.findIndex((img) => img.src.includes(path.split("/").pop()));
     }
 
 }
@@ -109,4 +116,90 @@ const scrollToSection = (section) => {
 
 const redirectTo = (path) => {
     window.location.href = path;
+}
+
+const handleOverlayChange = (e) =>{
+
+    if (e.type === 'click'){
+        const parentBoundingBox = e.target.getBoundingClientRect();
+        const middleLine = parentBoundingBox.left + parentBoundingBox.width/2;
+
+        if(e.clientX <= middleLine){
+            changeOverlayImage(-1);
+        }else{
+            changeOverlayImage(1);
+        }
+        
+    }else  if (e.type === 'keydown'){
+        if (e.key === 'ArrowLeft') {
+            changeOverlayImage(-1);
+        }else if (e.key === 'ArrowRight') {
+            changeOverlayImage(1);
+        }
+    }
+}
+
+const changeOverlayImage = (arg) => {
+    const allImages = [...document.getElementsByTagName("IMG")];
+    const images = allImages.filter((img) => img.onclick);
+
+    const contentDiv = document.getElementsByClassName("content")[0];
+    const oldImg = document.getElementById("preview");
+
+    const width = contentDiv.getBoundingClientRect().width;
+    const height = oldImg.getBoundingClientRect().height;
+        
+    if (arg === -1) {
+        if(overlayImageIndex === 0){
+            overlayImageIndex = images.length - 2;
+        }else{
+            overlayImageIndex--;
+        }
+        
+    }else if (arg === 1) {
+        if(overlayImageIndex === images.length - 2){
+            overlayImageIndex = 0;
+        }else{
+            overlayImageIndex++;
+        }
+    }
+
+    const img = document.getElementById("preview");
+    img.src = images[overlayImageIndex].src;
+    img.style.width = width + 'px';
+    img.style.maxHeight = height + 'px';
+}
+
+const handleTouchStart = (e) => {
+    const overlayDiv = document.getElementsByClassName("overlay")[0];
+    if(overlayDiv.style.display === 'flex')
+    {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+    }
+}
+
+const handleTouchEnd = (e) => {
+    const overlayDiv = document.getElementsByClassName("overlay")[0];
+    if(overlayDiv.style.display === 'flex'){
+        if (!startX || !startY) {
+            return;
+        }
+
+        const currentX = e.changedTouches[0].clientX;
+        const currentY = e.changedTouches[0].clientY;
+        const deltaX = currentX - startX;
+        const deltaY = currentY - startY;
+
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+            if (deltaX > 0) {
+                changeOverlayImage(-1);
+            } else {
+                changeOverlayImage(1);
+            }
+        }
+
+        startX = null;
+        startY = null;
+    }
 }

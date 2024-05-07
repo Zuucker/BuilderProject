@@ -71,8 +71,17 @@
     </div>
     <div class="overlay">
         <div class="content">
-            <img src="" id="preview">
+            <img src="" id="preview" onclick="handleOverlayChange(event)">
             <button class="button" onclick="toggleOverlay()">Wróć</button>
         </div>
+        <script>
+            document.addEventListener('keydown', (event)=>{
+                event.preventDefault();
+                handleOverlayChange(event);
+            });
+            
+            document.addEventListener('touchstart', handleTouchStart, false);
+            document.addEventListener('touchend', handleTouchEnd, false);
+        </script>
     </div>
 </body>
