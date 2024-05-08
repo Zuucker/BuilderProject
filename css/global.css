@@ -1,103 +1,103 @@
 :root {
-    --background: #f9fcfe;
-    --shadow: #645f7471;
-    --white: #ffff;
-    --accent: #dce3ff;
-    --primary: #3480ea;
-    --secondary: #2165c4;
-    --button:#60ace6;
-    --black: #000000;
-    --overlay: #6969698a;
+	--background: #f9fcfe;
+	--shadow: #645f7471;
+	--white: #ffff;
+	--accent: #dce3ff;
+	--primary: #3480ea;
+	--secondary: #2165c4;
+	--button: #60ace6;
+	--black: #000000;
+	--overlay: #6969698a;
 }
 
 body {
-    margin: 0;
-    font-family: 'Nunito Sans', sans-serif;
-    background-color: var(--background);
+	margin: 0;
+	font-family: "Nunito Sans", sans-serif;
+	background-color: var(--background);
 }
 
 .navbar {
-    position: sticky;
-    top: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    padding: 10px 20px;
-    box-shadow: 0 2px 4px var(--shadow);
-    z-index: 1000;
+	position: sticky;
+	top: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #fff;
+	padding: 10px 20px;
+	box-shadow: 0 2px 4px var(--shadow);
+	z-index: 1000;
 }
 
-.logo{
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-    margin-right: 2vw;
-    margin-top: auto;
-    cursor: pointer;
+.logo {
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+	margin-right: 2vw;
+	margin-top: auto;
+	cursor: pointer;
+}
 
-    & img {
-        height: 30px;
-        margin-right: 10px;
-     }
+.logo img {
+	height: 30px;
+	margin-right: 10px;
+}
 
-    & span{
-        font-family: "Nunito Sans", sans-serif;
-        font-size: 5vh;
-    }
+.logo span {
+	font-family: "Nunito Sans", sans-serif;
+	font-size: 5vh;
 }
 
 .menu-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-
-    & span{
-        cursor: pointer;
-    }
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
 }
 
-.overlay{
-    display: none;
-    height: 100vh;
-    width: 100vw;
-    background-color: var(--overlay);
-    position: absolute;
-    top: 0px;
-    left: 0px;
+.menu-item span {
+	cursor: pointer;
 }
 
-.invisible{
-    display: none;
+.overlay {
+	display: none;
+	height: 100vh;
+	width: 100vw;
+	background-color: var(--overlay);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.invisible {
+	display: none;
 }
 
 .button {
-    background-color: var(--button);
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+	background-color: var(--button);
+	border: none;
+	color: white;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px var(--shadow);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px var(--shadow);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 8px var(--shadow);
 }
 
-.text-important{
-    padding-left: 20px;
-    font-size: 4vh;
-    font-style: oblique;
-    font-weight: bold;
-    padding-bottom: 10px;
+.text-important {
+	padding-left: 20px;
+	font-size: 4vh;
+	font-style: oblique;
+	font-weight: bold;
+	padding-bottom: 10px;
 }

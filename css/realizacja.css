@@ -1,255 +1,113 @@
-/* body{
-    background-color: var(--background);
-}
-
-.container{
-    & .row{
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        text-align: center;
-
-        & .miniature,.title{
-            flex: 1 0 20%;
-            margin-top: 8vh;
-            padding: 40px;
-            font-size: 4vh;
-        }
-
-        & img{
-            width: 50vw;
-            max-height: 80vh;
-            aspect-ratio: 1;
-        }
-    }
-    
-    .description{
-        margin-left: 2vw;
-        font-size: 3.5vh;
-    }
-
-    & .grid{
-        display: flex;
-        flex-wrap: wrap;
-        & img{
-            width: 30vw;
-            margin: 1vw;
-            box-shadow: 2px 2px 2px 0px var(--shadow);
-        }
-    }
-}
-
-.overlay{
-    z-index: 10;
-    position: fixed;
-     & .content{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        max-height: 88vh;
-        
-        & button{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 6vh;
-            max-width: 2vw;
-        }
-    }
-    & img{
-        margin-top: 4vh;
-        max-height: inherit;
-        margin-bottom: 1vh;
-        box-shadow: 5px 8px 9px 0px var(--shadow);
-    }
-}
-
-@media (max-width: 600px) {
-    .row{
-        align-items:normal !important;
-    }
-
-    .miniature,.title  {
-        flex: 1 0 80% !important;
-        width: 100vw !important;
-        & img{
-            width: 80vw !important;
-        }
-    }
-    .title{
-        margin-top: 0px !important;
-        padding-top: 0px !important;
-    }
-
-    & .grid{
-        padding: 2vw;
-        & img{
-            margin: 0px !important;
-            flex: 1 0 100% !important;
-            width: 80vw !important;
-            margin-bottom: 2vh !important;
-        }
-    }
-    & .overlay > .content > img{
-        width: 90vw !important;
-    }
-}
-.navbar{
-    background-color: red;
-    position: fixed;
-    width: 100%;
-    height: 8vh;
-    z-index: 10;
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    & div{
-        height: inherit;
-        flex:1;
-    }
-
-    & .menu-item {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-width: 30vw;
-        background-color: red;
-
-        & span{
-            cursor: pointer;
-        }
-    }
-
-    & .logo{
-        height: inherit;
-        display: flex;
-        cursor: pointer;
-
-        & img{
-            margin: auto 10px auto 10px;
-            height: 80%;
-        }
-        & span{
-            font-size: 6vh;
-            font-family: "Nunito Sans", sans-serif;
-            margin-top: auto;
-            margin-bottom: auto;
-        }
-    }
-} */
-
-/* realizacja.css */
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .row {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    margin-bottom: 6vh;
-    margin-top: 3vh;
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	margin-bottom: 6vh;
+	margin-top: 3vh;
 }
 
 .miniature {
-    flex: 0 0 40%;
-    max-width: calc(40% - 3vh);
-    margin-left: 3vh;
+	flex: 0 0 40%;
+	max-width: calc(40% - 3vh);
+	margin-left: 3vh;
 }
 
 .miniature img {
-    width: 100%;
-    display: block;
+	width: 100%;
+	display: block;
 }
 
 .title {
-    flex: 0 0 50%;
-    max-width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bolder;
+	flex: 0 0 50%;
+	max-width: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bolder;
 }
 
 .description {
-    margin-top: 20px;
+	margin-top: 20px;
 }
 
 .grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
 }
 
 .grid img {
-    flex-basis: calc(33% - 2vh);
-    max-width: calc(33% - 2vh);
-    margin: 1vh;
-    box-shadow: 0 2px 4px var(--shadow);
-    cursor: pointer;
+	flex-basis: calc(33% - 2vh);
+	max-width: calc(33% - 2vh);
+	margin: 1vh;
+	box-shadow: 0 2px 4px var(--shadow);
+	cursor: pointer;
 }
 
 .overlay {
-    position: fixed;
-    top: 4vh;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--overlay);
-    display: none;
-    justify-content: center;
-    align-items: center;
+	position: fixed;
+	top: 4vh;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--overlay);
+	display: none;
+	justify-content: center;
+	align-items: center;
 }
 
-.content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
-.content button{
-    max-width: 30vw;
+.content button {
+	max-width: 30vw;
 }
 
 .overlay img {
-    max-width: 90%;
-    max-height: 80vh;
-    display: block;
-    margin: auto;
-    box-shadow: 0 2px 4px var(--shadow);
+	max-width: 90%;
+	max-height: 80vh;
+	display: block;
+	margin: auto;
+	box-shadow: 0 2px 4px var(--shadow);
 }
 
 @media only screen and (max-width: 768px) {
-    .row {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .miniature, .title {
-        flex: 1 1 auto;
-        max-width: 80%;
-    }
+	.row {
+		flex-direction: column;
+		align-items: center;
+	}
 
-    .grid img {
-        flex-basis: calc(50% - 2vh);
-        max-width: calc(50% - 2vh);
-    }
+	.miniature,
+	.title {
+		flex: 1 1 auto;
+		max-width: 80%;
+	}
+
+	.grid img {
+		flex-basis: calc(50% - 2vh);
+		max-width: calc(50% - 2vh);
+	}
 }
 
 @media only screen and (max-width: 480px) {
-    .grid img {
-        flex-basis: calc(100% - 2vh);
-        max-width: calc(100% - 2vh);
-    }
+	.grid img {
+		flex-basis: calc(100% - 2vh);
+		max-width: calc(100% - 2vh);
+	}
 }
 
 .grid img:hover {
-    transform: translateY(-5px);
-    transition: transform 0.3s ease;    
-    filter: brightness(60%);
-    transition: filter 0.3s ease;
+	transform: translateY(-5px);
+	transition: transform 0.3s ease;
+	filter: brightness(60%);
+	transition: filter 0.3s ease;
 }

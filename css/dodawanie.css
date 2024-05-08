@@ -1,70 +1,70 @@
-.container{
-    background-color: var(--background);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    flex-direction: column;
-
-    & .title{
-        margin-top: 10px;
-        margin-bottom: auto;
-        text-align: center;
-    }
-
-    & .control-panel{
-        height: 80vh;
-        width: 80vw;
-        flex-direction: row;
-        background-color: var(--white);
-        overflow-y: scroll;
-        margin-bottom: 15px;
-        margin-top:10px;
-
-        box-shadow: 0 2px 4px var(--shadow);
-        border: 1px solid var(--shadow);
-
-        & .record {
-            background-color: var(--accent);
-            margin:10px;
-            padding:5px;
-            min-height: 4vh;
-            height: auto;
-            border: 1px solid var(--shadow);
-            border-radius: 5px;;
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-            box-shadow: 0 2px 4px var(--shadow);
-        }
-    }
-
-    & .log-out a{
-        color: var(--white);
-        text-decoration: none;
-    }
-
-    & .addition{
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        justify-content: center;
-        margin-top:20px;
-    }
+.container {
+	background-color: var(--background);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100vw;
+	flex-direction: column;
 }
 
-.overlay{
-    display: none;
-    justify-content: center;
-    align-items: center;
+.container .title {
+	margin-top: 10px;
+	margin-bottom: auto;
+	text-align: center;
+}
 
-    & form{
-        background-color: var(--white);
-        box-shadow: 0 2px 4px var(--shadow);
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 2vh;
-    }
+.container .control-panel {
+	height: 80vh;
+	width: 80vw;
+	flex-direction: row;
+	background-color: var(--white);
+	overflow-y: scroll;
+	margin-bottom: 15px;
+	margin-top: 10px;
+
+	box-shadow: 0 2px 4px var(--shadow);
+	border: 1px solid var(--shadow);
+}
+
+.container .control-panel .record {
+	background-color: var(--accent);
+	margin: 10px;
+	padding: 5px;
+	min-height: 4vh;
+	height: auto;
+	border: 1px solid var(--shadow);
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	cursor: pointer;
+	box-shadow: 0 2px 4px var(--shadow);
+}
+
+.container .log-out a {
+	color: var(--white);
+	text-decoration: none;
+}
+
+.container .addition {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.overlay {
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+.overlay form {
+	background-color: var(--white);
+	box-shadow: 0 2px 4px var(--shadow);
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 2vh;
 }
