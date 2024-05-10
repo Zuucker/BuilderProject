@@ -74,9 +74,20 @@
         require './scripts/utils.php';
 
         $realizations = readFiles('zapisane/');
+        $length = count($realizations);
+        $count = 3;
 
-        for ($i = 2; $i < 5; $i++) {
-            echo realizationComponent($realizations[$i]);
+        for ($i = 2; $i < $length; $i++) {
+            $realization = realizationComponent($realizations[$i]);
+            if($realization !== "")
+            {
+                echo $realization;
+                
+                $count--;
+                if($count === 0){
+                    break;
+                }
+            }
         }
         ?>
     </div>

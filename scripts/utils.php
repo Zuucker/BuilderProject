@@ -6,6 +6,19 @@ function readFiles($path)
     return $files;
 }
 
+function countFiles($path)
+{
+    $files = readFiles($path);
+    $count = 0;
+
+    foreach ($files as $file) {
+        if (is_file($path . "/" . $file)) {
+            $count++;
+        }
+    }
+    return $count;
+}
+
 function getPrettyName($path)
 {
     $file = fopen('data.csv', 'r');
@@ -168,7 +181,8 @@ if (isset($_POST['upload'])) {
         if ($tmpFilePath != "") {
             $uploadDirectory = "zapisane/" . $path . "/";
 
-            $newName = time() . ".png";
+            $newName = time();
+            $newName = md5($newName) . ".png";
 
             $targetFilePath = $uploadDirectory . $newName;
             $miniatureTargetFilePath = $uploadDirectory . "miniatury/" . $newName;

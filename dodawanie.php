@@ -26,7 +26,7 @@
         <div class="title text-important">Dodawanie plików
             <form method='post'>
                 <div class="addition">
-                    <input type="text" id="newNameInput" class="invisible" name="arg1" value="Nowa realizacja">
+                    <input type="text" id="newNameInput" class="invisible" name="arg1" value="Nowa realizacja" maxlength="100">
                     <button type='submit' id="additionButton1" class="invisible" name='addNew'>Dodaj</button>
                     <button id="additionButton2" class="button" onclick="toggleAddition(event)">Dodaj nową realizację</button>
                     <button id="additionButton3" class="invisible" onclick="toggleAddition(event)">Anuluj</button>
@@ -41,8 +41,10 @@
             foreach (readFiles($path) as $file) {
                 if (is_dir($path . "/" . $file) && !($file == "." || $file == "..")) {
                     $name = getPrettyName($file);
+                    $creationTime = filectime($path . $file);
+                    $date = date("d.m.Y H:i:s", $creationTime);
                     echo "<div class='record' onclick='toggleRecord(event)'>
-                        $name
+                        <span>$name</span><span>" . countFiles($path . $file . "/") . " zdjęć </span><span>$date</span>
                         <div class='invisible'>
                             <button class='button' onclick='handleClick(\"changeName\",\"$file\")'>Zmień nazwę</button>
                             <button class='button' onclick='handleClick(\"delete\",\"$file\")'>Usuń</button>
