@@ -44,7 +44,11 @@
                     $creationTime = filectime($path . $file);
                     $date = date("d.m.Y H:i:s", $creationTime);
                     echo "<div class='record' onclick='toggleRecord(event)'>
-                        <span>$name</span><span>" . countFiles($path . $file . "/") . " zdjęć </span><span>$date</span>
+                        <div>
+                            <span>$name</span>
+                            <span>" . countFiles($path . $file . "/") . " zdjęć </span>
+                            <span>$date</span>
+                        </div>
                         <div class='invisible'>
                             <button class='button' onclick='handleClick(\"changeName\",\"$file\")'>Zmień nazwę</button>
                             <button class='button' onclick='handleClick(\"delete\",\"$file\")'>Usuń</button>

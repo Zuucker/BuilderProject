@@ -25,15 +25,15 @@ function getPrettyName($path)
 
     if ($file) {
         while (($line = fgetcsv($file)) !== false) {
-            if (strcasecmp($line[1], $path) == 1 && (strlen($line[1]) - 1) == strlen($path)) {
-                return $line[0];
+            if ($line[0] === $path) {
+                fclose($file);
+                return substr($line[1], 0, -1);
             }
         }
-        fclose($file);
     }
 
+    fclose($file);
     return '';
-
 }
 
 function changeName($path, $newPath)
@@ -78,7 +78,7 @@ function deleteName($path)
 
 function addNewName($newLine)
 {
-    $newLine = $newLine . "\n";
+    $newLine = "\n" . $newLine;
     $file = fopen('data.csv', 'r+');
 
     file_put_contents('data.csv', $newLine, FILE_APPEND);
@@ -89,10 +89,13 @@ function addNewName($newLine)
 
 function preparePath($text)
 {
-    $search = array(' ', '-', 'ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż', 'Ą', 'Ć', 'Ę', 'Ł', 'Ń', 'Ó', 'Ś', 'Ź', 'Ż');
-    $replace = array('_', '_', 'a', 'c', 'e', 'l', 'n', 'o', 's', 'z', 'z', 'A', 'C', 'E', 'L', 'N', 'O', 'S', 'Z', 'Z');
+    $data = file('data.csv');
+    $lastRow = array_pop($data);
+    $lastLine = str_getcsv($lastRow);
 
-    return str_replace($search, $replace, $text);
+    $index = intval($lastLine[0]) + 1;
+
+    return sprintf("%04d", $index);
 }
 
 function deleteFolder($path)
@@ -153,11 +156,12 @@ if (isset($_POST['changeName'])) {
 }
 
 if (isset($_POST['addNew'])) {
-    $fileName = $_POST['arg1'];
-    $line = $fileName . "," . preparePath($fileName) . ";";
+    $realizationName = $_POST['arg1'];
+    $index = preparePath($realizationName);
+    $line = $index . "," . $realizationName . ";";
 
     addNewName($line);
-    $fileName = "zapisane/" . preparePath($fileName) . "/miniatury";
+    $fileName = "zapisane/" . $index . "/miniatury";
     createFolder($fileName);
 }
 

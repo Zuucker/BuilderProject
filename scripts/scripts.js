@@ -3,8 +3,9 @@ let startX;
 let startY;
 
 const toggleRecord = (event) => {
-	const parentDiv = event.target;
-	const controlsDiv = parentDiv.childNodes[1];
+	const parentDiv = event.currentTarget;
+	const controlsDiv = [...parentDiv.childNodes].filter((node) => node.tagName === "DIV" && node.classList.contains("invisible"))[0];
+
 	if (
 		controlsDiv &&
 		controlsDiv.style &&
@@ -12,7 +13,7 @@ const toggleRecord = (event) => {
 	) {
 		const allRecords = [...document.getElementsByClassName("record")];
 		allRecords.forEach((r) => {
-			r.childNodes[1].style.display = "none";
+			r.childNodes[3].style.display = "none";
 		});
 		controlsDiv.style.display = "block";
 	} else if (
