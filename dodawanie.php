@@ -26,7 +26,7 @@
         <div class="title text-important">Dodawanie plików
             <form method='post'>
                 <div class="addition">
-                    <input type="text" id="newNameInput" class="invisible" name="arg1" value="Nowa realizacja" maxlength="100">
+                    <input type="text" id="newNameInput" class="invisible" name="arg1" value="Nowa realizacja" maxlength="80">
                     <button type='submit' id="additionButton1" class="invisible" name='addNew'>Dodaj</button>
                     <button id="additionButton2" class="button" onclick="toggleAddition(event)">Dodaj nową realizację</button>
                     <button id="additionButton3" class="invisible" onclick="toggleAddition(event)">Anuluj</button>

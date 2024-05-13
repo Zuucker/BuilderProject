@@ -36,44 +36,44 @@ function getPrettyName($path)
     return '';
 }
 
-function changeName($path, $newPath)
+function changeName($index, $newName)
 {
-    $oldLine = $path . "," . preparePath($path) . ";";
-    $newLine = $newPath . "," . preparePath($newPath) . ";";
+    $lines = file('data.csv');
 
-    //print ("$oldLine|$newLine");
+    foreach ($lines as &$line) {
+        $parts = explode(',', $line);
 
-    $file = fopen('data.csv', 'r+');
-    if ($file) {
-        $content = fread($file, filesize('data.csv'));
-        rewind($file);
-        fwrite($file, str_replace($oldLine, $newLine, $content));
-        rename('zapisane/' . preparePath($path), 'zapisane/' . preparePath($newPath));
-        fclose($file);
-    }
-}
-
-function deleteName($path)
-{
-    $file = fopen('data.csv', 'r+');
-    $newContent = [];
-
-    while (($line = fgets($file)) !== false) {
-        $value = explode(",", $line)[1];
-        $savedPath = substr($value, 0, strlen($value) - 2);
-
-        if (!($savedPath === $path && strlen($savedPath) === strlen($path))) {
-            $newContent[] = $line;
+        if ($parts[0] === $index) {
+            $parts[1] = $newName . ";\n";
+            $line = implode(',', $parts);
+            break;
         }
     }
 
-    rewind($file);
+    file_put_contents('data.csv', $lines);
+}
 
-    fwrite($file, implode('', $newContent));
+function deleteName($name)
+{
+    $file = fopen('data.csv', "r");
 
-    ftruncate($file, ftell($file));
-
+    $fileContent = fread($file, filesize('data.csv'));
     fclose($file);
+
+    $content = "";
+    $lines = explode(";", $fileContent);
+
+    foreach ($lines as $line) {
+        $parts = explode(",", $line);
+
+        if ($parts[0] != $name) {
+            $content .= $line . ";";
+        }
+    }
+
+    $content = substr($content, 0, -1);
+
+    file_put_contents("data.csv", $content);
 }
 
 function addNewName($newLine)
@@ -148,11 +148,10 @@ function resizeImage($filename, $newWidth, $newHeight)
 }
 
 if (isset($_POST['changeName'])) {
-    $fileName = $_POST['arg1'];
-    $newFileName = $_POST['arg2'];
-    $newFancyName = getPrettyName($fileName);
+    $index = $_POST['arg1'];
+    $newName = $_POST['arg2'];
 
-    changeName($newFancyName, $newFileName);
+    changeName($index, $newName);
 }
 
 if (isset($_POST['addNew'])) {

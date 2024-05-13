@@ -47,17 +47,12 @@
                 $newPath = "/" . $path . "miniatury/" . $results[2];
                 $prettyName = getPrettyName($argument);
 
-                echo "<div class='miniature'>
-                        <img src='$newPath'>
-                    </div>
-                    <div class='title text-important'>$prettyName</div>";
-
                 echo "</div>";
-                echo "<span class='text-important'>Więcej zdjęć z tej realizacji</span>";
+                echo "<span class='text-important'>$prettyName</span>";
                 echo "<div class='grid'>";
 
                 foreach ($results as $result) {
-                    if ($result !== "." && $result !== ".." && $result !== "miniatury" && $result !== $results[2]) {
+                    if ($result !== "." && $result !== ".." && $result !== "miniatury") {
                         $newPath = "/" . $path . "miniatury/" . $result;
                         $originalPath = "/" . $path . $result;
                         echo "<img src='$newPath' onclick='expandMiniature(\"$originalPath\")'>";
