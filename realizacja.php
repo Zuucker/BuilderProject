@@ -66,6 +66,7 @@
     </div>
     <div class="overlay">
         <div class="content">
+            <span class="text-important" id="previewCounter"></span>
             <img src="" id="preview" onclick="handleOverlayChange(event)">
             <button class="button" onclick="toggleOverlay()">Wróć</button>
         </div>

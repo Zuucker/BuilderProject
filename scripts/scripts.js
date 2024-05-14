@@ -44,6 +44,9 @@ const expandMiniature = (path) => {
 		overlayImageIndex = images.findIndex((img) =>
 			img.src.includes(path.split("/").pop())
 		);
+
+		const previewCounter = document.getElementById("previewCounter");
+		previewCounter.innerHTML = (overlayImageIndex + 1) + " / " + (images.length - 1);
 	}
 };
 
@@ -141,12 +144,6 @@ const changeOverlayImage = (arg) => {
 	const allImages = [...document.getElementsByTagName("IMG")];
 	const images = allImages.filter((img) => img.onclick);
 
-	const contentDiv = document.getElementsByClassName("content")[0];
-	const oldImg = document.getElementById("preview");
-
-	const width = contentDiv.getBoundingClientRect().width;
-	const height = oldImg.getBoundingClientRect().height;
-
 	if (arg === -1) {
 		if (overlayImageIndex === 0) {
 			overlayImageIndex = images.length - 2;
@@ -160,6 +157,9 @@ const changeOverlayImage = (arg) => {
 			overlayImageIndex++;
 		}
 	}
+
+	const previewCounter = document.getElementById("previewCounter");
+	previewCounter.innerHTML = (overlayImageIndex + 1) + " / " + (images.length - 1);
 
 	const img = document.getElementById("preview");
 	img.src = images[overlayImageIndex].src.replace("miniatury/", "");

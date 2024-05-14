@@ -38,13 +38,21 @@
 
             $path = "zapisane/";
 
-            foreach (readFiles($path) as $file) {
+            $files = readFiles($path);
+
+            usort($files, function ($a, $b) use ($path) {
+                $timeA = filectime($path . '/' . $a);
+                $timeB = filectime($path . '/' . $b);
+                return $timeA - $timeB;
+            });
+
+            foreach ($files as $file) {
                 if (is_dir($path . "/" . $file) && !($file == "." || $file == "..")) {
                     $name = getPrettyName($file);
                     $creationTime = filectime($path . $file);
                     $date = date("d.m.Y H:i:s", $creationTime);
                     echo "<div class='record' onclick='toggleRecord(event)'>
-                        <div>
+                        <div class='record-info'>
                             <span>$name</span>
                             <span>" . countFiles($path . $file . "/") . " zdjęć </span>
                             <span>$date</span>

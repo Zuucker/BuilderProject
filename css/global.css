@@ -7,7 +7,8 @@
 	--secondary: #2165c4;
 	--button: #60ace6;
 	--black: #000000;
-	--overlay: #6969698a;
+	--overlay: #696969c3;
+	/* --overlay: #6969698a; */
 }
 
 body {

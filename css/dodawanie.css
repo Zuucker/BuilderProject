@@ -43,6 +43,20 @@
 	flex-direction: column;
 }
 
+.container .control-panel .record-info {
+	display: flex;
+	justify-content: end;
+}
+
+.container .control-panel .record-info span {
+	margin-left: 10px;
+}
+
+.container .control-panel .record-info span:first-of-type {
+	margin-right: auto;
+	margin-left: 0px;
+}
+
 .container .log-out a {
 	color: var(--white);
 	text-decoration: none;
