@@ -73,8 +73,8 @@
 }
 
 .overlay img {
-	max-width: 90%;
-	max-height: 80vh;
+	/* max-width: 90%; */
+	max-height: 70vh;
 	display: block;
 	margin: auto;
 	box-shadow: 0 2px 4px var(--shadow);

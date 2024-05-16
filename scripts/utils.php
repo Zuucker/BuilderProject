@@ -126,6 +126,8 @@ function deleteFolder($path)
 function createFolder($path)
 {
     mkdir($path, 0777, true);
+    createIndexFile($path);
+    createIndexFile(str_replace('/miniatury', '', $path));
 }
 
 function resizeImage($filename, $newWidth, $newHeight)
@@ -219,4 +221,9 @@ function realizationComponent($path)
             </div>";
 }
 
+function createIndexFile($path)
+{
+    copy('./scripts/index.php', './' . $path . "/index.php");
+}
 ?>
+
