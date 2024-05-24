@@ -10,17 +10,17 @@ It's main goal is to provide contact information, the companies field of operati
 ### Key Features
 &nbsp;&nbsp;&nbsp;&nbsp;Besides the main page containing information about the company, the page also has a gallery of finished projects, a gallery of images for a given project and a administration panel, where the owner can log in, manage realizations and add images to them.
 
-The main page:
+The main page:<br>
 ![Main](./readme/main.gif)
 
 
-The realizations:
+The realizations:<br>
 ![Realizations](./readme/moreRealziaztions.gif)
 
-An example relaization:
+An example relaization:<br>
 ![Realization](./readme/realization.gif)
 
-The administrative panel:
+The administrative panel:<br>
 ![AdminPanel](./readme/adminPanel.gif)
 
 ### Tech stack
